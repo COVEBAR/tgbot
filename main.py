@@ -27,7 +27,7 @@ bot = telebot.TeleBot("8181972121:AAG1cSkgwIRlQAwiiWed4hMHaN5e-iFj9DM")
 # превед
 @bot.message_handler(commands=['start'])
 def send_welcome(message):
-    bot.send_message(message.chat.id, """ВЕЛИКАЯ, НЕПОВТОРИМАЯ И ОПРЕДЕЛЁННО ТОЧНО НЕ БАКА, СЫРНО, ПРИВЕТСТВУЕТ ТЕБЯ
+    bot.send_message(message.chat.id, f"""ВЕЛИКАЯ, НЕПОВТОРИМАЯ И ОПРЕДЕЛЁННО ТОЧНО НЕ БАКА, СЫРНО, ПРИВЕТСТВУЕТ ТЕБЯ, "{message.chat.username}"
 Чё тебе надо от меня, а? Не знаешь? Дык пропиши /help и будет тебе всё предельно чечётка и ясно, что тебе от меня нужно
 """)
 
@@ -49,4 +49,11 @@ def send_gif(message):
 def send_news(message):
     bot.send_message(message.chat.id, get_news())
 
+# реакт на "бака"
+@bot.message_handler()
+def baka_check_status(message):
+    if "бака" in message.text.lower() or "baka" in message.text.lower():
+        bot.send_message(message.chat.id, """ВООБЩЕ-ТО Я ОЧЕНЬ УМНАЯ! ДА ТЫ САМ БАКА! ЧТО ВООБЩЕ ЗА ЧЕПУХУ ТЫ ГОРОДИШЬ ПРО МЕНЯ!""")
+
+# математика
 bot.infinity_polling()
