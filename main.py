@@ -1,4 +1,4 @@
-import requests, json, telebot, sqlite3, datetime, randomadd
+import requests, json, telebot, sqlite3, datetime, random
 
 msg_time = datetime.datetime.now()
 
